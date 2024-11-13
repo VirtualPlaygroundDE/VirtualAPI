@@ -1,4 +1,14 @@
-# VirtualAPI
+<div align="center">
+
+[![](https://jitpack.io/v/VirtualPlaygroundDE/VirtualAPI.svg)](https://jitpack.io/#VirtualPlaygroundDE/VirtualAPI)
+[![CodeFactor](https://www.codefactor.io/repository/github/virtualplaygroundde/virtualapi/badge)](https://www.codefactor.io/repository/github/virtualplaygroundde/virtualapi)
+
+<div>
+    <h1>VirtualAPI</h1>
+</div>
+
+</div>
+
 > :warning: Dependencies: [CommandAPI](https://www.spigotmc.org/resources/62353/), [PlaceholderAPI](https://www.spigotmc.org/resources/6245/)
 
 ## Features
