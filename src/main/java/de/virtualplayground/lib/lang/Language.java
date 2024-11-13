@@ -11,7 +11,6 @@ import org.jetbrains.annotations.NotNull;
 import javax.annotation.Nonnull;
 import java.util.HashMap;
 import java.util.Map;
-import java.util.concurrent.atomic.AtomicReference;
 
 public class Language extends ConfigHandler {
 
@@ -42,18 +41,7 @@ public class Language extends ConfigHandler {
         this.prefix = config.getString("prefix");
 
         // Load variables and messages from their respective sections in the configuration
-        ConfigurationSection variables = config.getConfigurationSection("var");
         ConfigurationSection messages = config.getConfigurationSection("messages");
-
-        // Load variables from the configuration, if they exist
-        if (variables != null) {
-            for (String key : variables.getKeys(false)) {
-                String value = variables.getString(key);
-                if (value != null) {
-                    this.variables.put(key, value);
-                }
-            }
-        }
 
         // Load messages and replace placeholders, if they exist
         if (messages != null) {
@@ -67,18 +55,9 @@ public class Language extends ConfigHandler {
                         }
                     }
 
-                    // Replace custom variables in the message
-                    AtomicReference<String> result = new AtomicReference<>(message);
-                    this.variables.forEach((current, value) -> {
-                        String placeholder = "<var:" + current + ">";
-                        if (result.get().contains(placeholder)) {
-                            result.set(result.get().replace(placeholder, value));
-                        }
-                    });
-
                     // Deserialize the message using MiniMessage for text formatting
                     MiniMessage miniMessage = MiniMessage.miniMessage();
-                    this.messages.put(key, miniMessage.deserialize(result.get()));
+                    this.messages.put(key, miniMessage.deserialize(message));
                 }
             }
         }

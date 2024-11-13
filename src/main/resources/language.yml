@@ -1,11 +1,5 @@
-prefix: '<dark_gray>[<gold>VirtualPlaygrounds<dark_gray>]'
-var:
-  primary: '<gold>'
-  secondary: '<yellow>'
-  text: '<gray>'
-  success: '<white>'
-  error: '<red>'
+prefix: '<dark_gray>[<gold><bold>VP</bold><dark_gray>]'
 messages:
-  balance: '<prefix> <var:text>Du hast <var:primary>%balance% <var:text>VP Coins.'
-  balanceOthers: '<prefix> <var:text>Der Spieler <var:secondary>%balance% <var:text>VP Coins.'
-  
+  balance: '<prefix> <gray>Du hast <yellow>%balance% <gray>VP Coins.'
+  balanceOthers: '<prefix> <gray>Der Spieler <gold>%player% <gray>hat <yellow>%balance% <grey>VP Coins.'
+  balanceChanged: '<prefix> <gray>Coins von <yellow>%player% <gray>aktualisiert<dark_gray>: <red>%oldBalance% <gray>-> <yellow>%newBalance%'

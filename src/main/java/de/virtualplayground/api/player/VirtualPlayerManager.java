@@ -1,7 +1,6 @@
 package de.virtualplayground.api.player;
 
 import de.virtualplayground.plugin.VirtualPlugin;
-import de.virtualplayground.plugin.task.SavePlayerTask;
 import org.bukkit.entity.Player;
 
 import javax.annotation.Nonnull;
@@ -30,10 +29,10 @@ public class VirtualPlayerManager {
     }
 
     public void save(VirtualPlayer virtualPlayer) {
-        save(virtualPlayer.getUniqueId());
+        plugin.getCursor().savePlayer(virtualPlayer);
     }
 
     public void save(UUID uuid) {
-        new SavePlayerTask(plugin, uuid).runTaskAsynchronously(plugin);
+        plugin.getCursor().savePlayer(uuid);
     }
 }

@@ -3,3 +3,9 @@ version: '1.0.0'
 main: de.virtualplayground.plugin.VirtualPlugin
 api-version: '1.21'
 authors: [ MrMending ]
+dependencies:
+  server:
+    CommandAPI:
+      load: BEFORE
+      required: true
+      join-classpath: true

@@ -2,6 +2,8 @@ package de.virtualplayground.plugin;
 
 import de.virtualplayground.api.VirtualAPI;
 import de.virtualplayground.lib.gui.GuiListener;
+import de.virtualplayground.lib.lang.Language;
+import de.virtualplayground.plugin.command.CoinsCommand;
 import de.virtualplayground.plugin.config.MainConfig;
 import de.virtualplayground.plugin.listener.JoinListener;
 import de.virtualplayground.plugin.listener.QuitListener;
@@ -12,6 +14,7 @@ import org.bukkit.plugin.java.JavaPlugin;
 
 public final class VirtualPlugin extends JavaPlugin {
 
+    private final Language language = new Language(this);
     private final MainConfig mainConfig = new MainConfig(this);
 
     private SQLCursor cursor;
@@ -24,6 +27,7 @@ public final class VirtualPlugin extends JavaPlugin {
     @Override
     public void onEnable() {
 
+        language.init();
         mainConfig.init();
 
         cursor = new SQLCursor(this);
@@ -31,11 +35,14 @@ public final class VirtualPlugin extends JavaPlugin {
         cursor.createTables();
 
         registerEvents(getServer().getPluginManager());
+        registerCommands();
     }
 
     @Override
     public void onDisable() {
+
         new SavePlayersTask(this).run();
+
         cursor.disconnect();
         VirtualAPI.getInstance().onDisable();
     }
@@ -46,6 +53,14 @@ public final class VirtualPlugin extends JavaPlugin {
         pluginManager.registerEvents(new QuitListener(this), this);
     }
 
+    private void registerCommands() {
+        new CoinsCommand(this).register();
+    }
+
+    public Language getLanguage() {
+        return this.language;
+    }
+
     public MainConfig getMainConfig() {
         return this.mainConfig;
     }
@@ -53,5 +68,4 @@ public final class VirtualPlugin extends JavaPlugin {
     public SQLCursor getCursor() {
         return this.cursor;
     }
-
 }
