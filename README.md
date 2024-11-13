@@ -2,7 +2,7 @@
 > :warning: Dependencies: [CommandAPI](https://www.spigotmc.org/resources/62353/), [PlaceholderAPI](https://www.spigotmc.org/resources/6245/)
 
 ## Features
-- Create Configurations Files
+- Create Configuration Files
 - Create Language Files ([MiniMessage](https://docs.advntr.dev/minimessage/format.html) Format)
 - Create Custom Guis and Villager Trades
 - Built-in Regions
