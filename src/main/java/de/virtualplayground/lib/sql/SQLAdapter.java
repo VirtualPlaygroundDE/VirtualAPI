@@ -8,7 +8,6 @@ import java.util.HashMap;
 
 public abstract class SQLAdapter {
 
-    private final java.sql.SQLType type; // The type of SQL database (e.g., MySQL or SQLite)
     protected final SQLAuth auth; // Authentication details for connecting to the database
     protected Connection connection; // The SQL connection object
     private final HashMap<String, SQLTable> tables = new HashMap<>(); // Cache for SQL tables
@@ -19,8 +18,7 @@ public abstract class SQLAdapter {
      * @param type   The type of SQL database (e.g., MySQL or SQLite).
      * @param auth   The authentication details required to connect to the database.
      */
-    public SQLAdapter(@Nonnull java.sql.SQLType type, SQLAuth auth) {
-        this.type = type;
+    public SQLAdapter(SQLAuth auth) {
         this.auth = auth;
     };
 
@@ -416,11 +414,7 @@ public abstract class SQLAdapter {
      */
     private Connection getConnection() {
         try {
-            if (this.type.equals(SQLType.SQLITE)) {
-                return DriverManager.getConnection(SQLType.SQLITE + auth.getFile().getPath()); // SQLite connection
-            } else {
-                return DriverManager.getConnection(SQLType.MYSQL + auth.getHost() + ":" + auth.getPort() + "/" + auth.getDatabase() + "?autoReconnect=true", auth.getUser(), auth.getPassword()); // MySQL connection
-            }
+            return DriverManager.getConnection("jdbc:mysql://" + auth.getHost() + ":" + auth.getPort() + "/" + auth.getDatabase() + "?autoReconnect=true", auth.getUser(), auth.getPassword()); // MySQL connection
         } catch (SQLException e) {
             throw new RuntimeException(e); // Wrap and throw the exception
         }
