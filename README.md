@@ -5,7 +5,8 @@
 - Create Configurations Files
 - Create Language Files ([MiniMessage](https://docs.advntr.dev/minimessage/format.html) Format)
 - Create Custom Guis and Villager Trades
-- Built-in Region System
+- Built-in Regions
+- Global Economy System
 - MySQL-Support
 
 ## Implementation
