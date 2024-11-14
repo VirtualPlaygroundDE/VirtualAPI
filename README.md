@@ -9,7 +9,7 @@
 
 </div>
 
-> :warning: Dependencies: [CommandAPI](https://www.spigotmc.org/resources/62353/), [NBTAPI](https://www.spigotmc.org/resources/7939/)
+> :warning: Dependencies: [CommandAPI](https://modrinth.com/plugin/commandapi), [NBTAPI](https://modrinth.com/plugin/nbtapi)
 
 ## Features
 - Create Configuration Files
