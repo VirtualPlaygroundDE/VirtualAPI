@@ -9,13 +9,14 @@
 
 </div>
 
-> :warning: Dependencies: [CommandAPI](https://www.spigotmc.org/resources/62353/), [PlaceholderAPI](https://www.spigotmc.org/resources/6245/)
+> :warning: Dependencies: [CommandAPI](https://www.spigotmc.org/resources/62353/), [NBTAPI](https://www.spigotmc.org/resources/7939/)
 
 ## Features
 - Create Configuration Files
 - Create Language Files ([MiniMessage](https://docs.advntr.dev/minimessage/format.html) Format)
 - Create Custom Guis and Villager Trades
 - Built-in Regions
+- Custom Items and Recipes
 - Global Economy System
 - MySQL-Support
 
