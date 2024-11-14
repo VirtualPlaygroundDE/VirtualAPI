@@ -4,7 +4,6 @@ import de.virtualplayground.api.VirtualAPI;
 import de.virtualplayground.lib.gui.Gui;
 import de.virtualplayground.lib.gui.GuiIcon;
 import net.kyori.adventure.text.Component;
-import org.bukkit.event.inventory.InventoryCloseEvent;
 import org.bukkit.event.inventory.InventoryOpenEvent;
 
 import java.util.concurrent.atomic.AtomicInteger;
@@ -30,8 +29,4 @@ public class ItemsGui extends Gui {
         update();
     }
 
-    @Override
-    public void onClose(InventoryCloseEvent event) {
-
-    }
 }

@@ -1,5 +1,6 @@
 package de.virtualplayground.lib.gui;
 
+import de.virtualplayground.lib.item.ItemBuilder;
 import net.kyori.adventure.text.Component;
 import org.bukkit.Bukkit;
 import org.bukkit.entity.Player;
@@ -89,7 +90,15 @@ public abstract class Gui implements InventoryHolder {
      *
      * @param event The event triggered when the inventory is opened.
      */
-    public abstract void onOpen(InventoryOpenEvent event);
+    public void onOpen(InventoryOpenEvent event) {}
+
+    /**
+     * Called when the inventory is clicked.
+     * Must be implemented by subclasses to define behavior on inventory close.
+     *
+     * @param event The event triggered when the inventory is closed.
+     */
+    public void onClick(InventoryClickEvent event) {}
 
     /**
      * Called when the inventory is closed.
@@ -97,7 +106,7 @@ public abstract class Gui implements InventoryHolder {
      *
      * @param event The event triggered when the inventory is closed.
      */
-    public abstract void onClose(InventoryCloseEvent event);
+    public void onClose(InventoryCloseEvent event) {}
 
     /**
      * Handles click events inside the GUI, managing item interaction and actions.
@@ -107,6 +116,8 @@ public abstract class Gui implements InventoryHolder {
     public void handleClick(InventoryClickEvent event) {
 
         int slot = event.getRawSlot();
+
+        onClick(event);
 
         // If there's no item in this slot, cancel the event.
         if (this.items.get(slot) == null) {
@@ -122,6 +133,45 @@ public abstract class Gui implements InventoryHolder {
         // Execute the item's click action if one is defined.
         if (this.items.get(slot).getAction() != null) {
             this.items.get(slot).getAction().accept(event);
+        }
+    }
+
+    /**
+     * Fill inventory of the GUI.
+     *
+     * @param guiIcon The item representing the icons.
+     *
+     */
+    public void fill(@Nonnull GuiIcon guiIcon) {
+        for (int slot = 0; slot < size; slot++) {
+            setItem(slot, guiIcon);
+        }
+    }
+
+    /**
+     * Fill specific area of the GUI.
+     *
+     * @param guiIcon The item representing the icons.
+     * @param start The first slot of the area.
+     * @param end The last slot of the area.
+     *
+     */
+    public void fill(@Nonnull GuiIcon guiIcon, @Nonnegative int start, @Nonnegative int end) {
+        for (int slot = start; slot < end; slot++) {
+            setItem(slot, guiIcon);
+        }
+    }
+
+    /**
+     * Fill specific area of the GUI.
+     *
+     * @param guiIcon The item representing the icons.
+     * @param row The row to fill.
+     *
+     */
+    public void fillRow(@Nonnull GuiIcon guiIcon, @Nonnegative int row) {
+        for (int slot = row * 9; slot < (row * 9) + 9; slot++) {
+            setItem(slot, guiIcon);
         }
     }
 
