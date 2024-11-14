@@ -34,6 +34,7 @@
     <groupId>com.github.VirtualPlaygroundDE</groupId>
     <artifactId>VirtualAPI</artifactId>
     <version>{VERSION}</version>
+    <scope>provided</scope>
 </dependency>
 ```
 
@@ -42,5 +43,5 @@
 maven { url 'https://jitpack.io' }
 ```
 ```gradle
-compleOnly 'com.github.VirtualPlaygroundDE:VirtualAPI:{VERSION}'
+compileOnly 'com.github.VirtualPlaygroundDE:VirtualAPI:{VERSION}'
 ```
