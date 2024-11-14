@@ -1,5 +1,5 @@
-name: VirtualAPI
-version: '1.0.0'
+name: ${project.name}
+version: '${project.version}'
 main: de.virtualplayground.plugin.VirtualPlugin
 api-version: '1.21'
 authors: [ MrMending ]
@@ -9,3 +9,6 @@ dependencies:
       load: BEFORE
       required: true
       join-classpath: true
+    NBTAPI:
+      load: BEFORE
+      required: true

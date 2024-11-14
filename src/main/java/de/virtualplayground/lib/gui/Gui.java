@@ -49,11 +49,7 @@ public abstract class Gui implements InventoryHolder {
      * @param guiIcon The GuiIcon to be added to the GUI.
      */
     public void addItem(@Nonnull GuiIcon guiIcon) {
-        this.items.forEach((slot, item) -> {
-            if (item == null) {
-                setItem(slot, guiIcon);
-            }
-        });
+        this.items.put(items.size(), guiIcon);
     }
 
     /**

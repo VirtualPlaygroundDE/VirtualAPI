@@ -1,12 +1,13 @@
-package de.virtualplayground.lib.gui;
+package de.virtualplayground.plugin.listener;
 
+import de.virtualplayground.lib.gui.Gui;
 import org.bukkit.event.EventHandler;
 import org.bukkit.event.Listener;
 import org.bukkit.event.inventory.InventoryClickEvent;
 import org.bukkit.event.inventory.InventoryCloseEvent;
 import org.bukkit.event.inventory.InventoryOpenEvent;
 
-public class GuiListener implements Listener {
+public class InventoryListener implements Listener {
 
     @EventHandler
     public void onInventoryClick(InventoryClickEvent event) {

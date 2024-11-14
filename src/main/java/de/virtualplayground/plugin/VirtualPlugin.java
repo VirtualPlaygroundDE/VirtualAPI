@@ -1,12 +1,11 @@
 package de.virtualplayground.plugin;
 
 import de.virtualplayground.api.VirtualAPI;
-import de.virtualplayground.lib.gui.GuiListener;
+import de.virtualplayground.plugin.command.ItemsCommand;
+import de.virtualplayground.plugin.listener.*;
 import de.virtualplayground.lib.lang.Language;
 import de.virtualplayground.plugin.command.CoinsCommand;
 import de.virtualplayground.plugin.config.MainConfig;
-import de.virtualplayground.plugin.listener.JoinListener;
-import de.virtualplayground.plugin.listener.QuitListener;
 import de.virtualplayground.plugin.sql.SQLCursor;
 import de.virtualplayground.plugin.task.SavePlayersTask;
 import org.bukkit.plugin.PluginManager;
@@ -48,13 +47,16 @@ public final class VirtualPlugin extends JavaPlugin {
     }
 
     private void registerEvents(final PluginManager pluginManager) {
-        pluginManager.registerEvents(new GuiListener(), this);
         pluginManager.registerEvents(new JoinListener(this), this);
         pluginManager.registerEvents(new QuitListener(this), this);
+        pluginManager.registerEvents(new InventoryListener(), this);
+        pluginManager.registerEvents(new CraftingListener(), this);
+        pluginManager.registerEvents(new BlockListener(), this);
     }
 
     private void registerCommands() {
         new CoinsCommand(this).register();
+        new ItemsCommand().register();
     }
 
     public Language getLanguage() {

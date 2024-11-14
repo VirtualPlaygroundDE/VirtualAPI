@@ -6,7 +6,7 @@
 
     <groupId>de.virtualplayground</groupId>
     <artifactId>plugin</artifactId>
-    <version>1.1.1</version>
+    <version>1.1.2</version>
     <packaging>jar</packaging>
 
     <name>VirtualAPI</name>
@@ -61,6 +61,11 @@
             <url>https://oss.sonatype.org/content/groups/public/</url>
         </repository>
         <repository>
+            <id>codemc-repo</id>
+            <url>https://repo.codemc.io/repository/maven-public/</url>
+            <layout>default</layout>
+        </repository>
+        <repository>
             <id>jitpack.io</id>
             <url>https://jitpack.io</url>
         </repository>
@@ -77,6 +82,12 @@
             <groupId>dev.jorel</groupId>
             <artifactId>commandapi-bukkit-core</artifactId>
             <version>9.6.0</version>
+            <scope>provided</scope>
+        </dependency>
+        <dependency>
+            <groupId>de.tr7zw</groupId>
+            <artifactId>item-nbt-api-plugin</artifactId>
+            <version>2.14.0</version>
             <scope>provided</scope>
         </dependency>
     </dependencies>
