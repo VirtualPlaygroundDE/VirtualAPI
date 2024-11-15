@@ -119,12 +119,6 @@ public abstract class Gui implements InventoryHolder {
 
         onClick(event);
 
-        // If there's no item in this slot, cancel the event.
-        if (this.items.get(slot) == null) {
-            event.setCancelled(true);
-            return;
-        }
-
         // If the item is marked as fixed, cancel the event (cannot be moved).
         if (this.items.get(slot).isFixed()) {
             event.setCancelled(true);

@@ -1,4 +1,4 @@
-prefix: '<dark_gray>[<gold><bold>VP</bold><dark_gray>]'
+prefix: '<dark_gray>[<gold><bold>API</bold><dark_gray>]'
 messages:
   balance: '<prefix> <gray>Du hast <yellow>%balance% <gray>VP Coins.'
   balanceOthers: '<prefix> <gray>Der Spieler <gold>%player% <gray>hat <yellow>%balance% <grey>VP Coins.'

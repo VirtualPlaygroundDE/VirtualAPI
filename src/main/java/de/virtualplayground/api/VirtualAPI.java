@@ -41,7 +41,7 @@ public class VirtualAPI {
         return this.itemManager;
     }
 
-    public LocationConfig getLocationConfig() {
+    public LocationConfig getLocationManager() {
         return plugin.getLocationConfig();
     }
 
