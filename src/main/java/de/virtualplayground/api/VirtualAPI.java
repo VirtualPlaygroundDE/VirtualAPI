@@ -2,6 +2,7 @@ package de.virtualplayground.api;
 
 import de.virtualplayground.api.item.CustomItemManager;
 import de.virtualplayground.api.player.VirtualPlayerManager;
+import de.virtualplayground.lib.config.LocationConfig;
 import de.virtualplayground.plugin.VirtualPlugin;
 
 import javax.annotation.Nonnull;
@@ -38,6 +39,10 @@ public class VirtualAPI {
 
     public CustomItemManager getItemManager() {
         return this.itemManager;
+    }
+
+    public LocationConfig getLocationConfig() {
+        return plugin.getLocationConfig();
     }
 
 }

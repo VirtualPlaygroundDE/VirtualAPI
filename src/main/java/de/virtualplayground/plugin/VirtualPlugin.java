@@ -1,6 +1,7 @@
 package de.virtualplayground.plugin;
 
 import de.virtualplayground.api.VirtualAPI;
+import de.virtualplayground.lib.config.LocationConfig;
 import de.virtualplayground.plugin.command.ItemsCommand;
 import de.virtualplayground.plugin.listener.*;
 import de.virtualplayground.lib.lang.Language;
@@ -15,6 +16,7 @@ public final class VirtualPlugin extends JavaPlugin {
 
     private final Language language = new Language(this);
     private final MainConfig mainConfig = new MainConfig(this);
+    private final LocationConfig locationConfig = new LocationConfig(this);
 
     private SQLCursor cursor;
 
@@ -28,6 +30,7 @@ public final class VirtualPlugin extends JavaPlugin {
 
         language.init();
         mainConfig.init();
+        this.locationConfig.init();
 
         cursor = new SQLCursor(this);
         cursor.connect();
@@ -65,6 +68,10 @@ public final class VirtualPlugin extends JavaPlugin {
 
     public MainConfig getMainConfig() {
         return this.mainConfig;
+    }
+
+    public LocationConfig getLocationConfig() {
+        return this.locationConfig;
     }
 
     public SQLCursor getCursor() {

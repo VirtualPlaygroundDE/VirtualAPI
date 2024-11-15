@@ -77,6 +77,6 @@ public abstract class ConfigHandler {
      *
      * @param config The configuration that is about to be saved.
      */
-    public abstract void onPreSave(FileConfiguration config);
+    public void onPreSave(FileConfiguration config) {};
 
 }

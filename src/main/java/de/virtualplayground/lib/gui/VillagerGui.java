@@ -20,7 +20,6 @@ public abstract class VillagerGui {
     public VillagerGui(@Nonnull Component title) {
         this.title = title;
         this.recipes = new ArrayList<>();
-        create(); // Create recipes for the GUI
     }
 
     /**
