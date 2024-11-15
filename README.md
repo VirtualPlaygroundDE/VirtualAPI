@@ -17,7 +17,8 @@
 - Create Custom Guis and Villager Trades
 - Built-in Regions
 - Custom Items and Recipes
-- Global Economy System
+- Global Location Manager
+- Economy System
 - MySQL-Support
 
 ## Implementation
